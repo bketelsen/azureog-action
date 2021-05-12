@@ -1,0 +1,17 @@
+name: "Azure OG"
+description: "Generate OG Images"
+inputs:
+  script:
+    description: "Script Name"
+    required: true
+    default: ""
+  directory:
+    description: "Directory to execute in"
+    required: false
+    default: .
+runs:
+  using: "docker"
+  image: Dockerfile
+  args:
+    - ${{ inputs.directory }}
+    - ${{ inputs.script }}
